@@ -27,8 +27,7 @@ cdef double[:] p_cluster_arr = make_cluster_probs() # prob to propose cluster mo
 cdef double[:,:,:] prob;                            #array of switching probabilities
 cdef float J_nn = 0.1                               # nn energy, nonspecific
 L1,L2,L3 = 20,20,5                                   # Polymer Lengths
-#out_path = "/home/mnr29/project/coupled/red_blue_positive_interaction/varyTb/"
-out_path = "/home/mnr29/project/coupled/red_blue_positive_interaction/varyTb/"
+out_path = "./"
 #array of ising temperatures to move through 
 nn = [(1,0,0),(-1,0,0),(0,-1,0),(0,1,0),(0,0,1),(0,0,-1)] #nearest neighbor coordinates
 nn_lo = [(1,0,0),(0,-1,0),(0,1,0),(0,0,1),(0,0,-1)]       #when at x = 0
@@ -61,25 +60,28 @@ def main(float tether_conc,float J_stop, float chem_potent,float hPhiMax, float 
     #increase hPhi at constant J
     for hPhi in np.arange(0,hPhiMax+0.01,0.1):
         probs = make_probs(0,hPhi)
-        fn = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_increase.txt".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
-        fn_i = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_increase_ising.txt".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
+        fn = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_increase".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
+        fn_i = fn + "_ising.txt"
+        fn_t = fn + "_tethers.txt";
         lattice,lattice_res = make_lattice(state,lattice,lattice_res)
-        state,ising,lattice,lattice_res = sim(iters_bulk_hiT,state,fn,fn_i,ising,lattice,lattice_res,N3,probs,switch_probs)
+        state,ising,lattice,lattice_res = sim(iters_bulk_hiT,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
     hPhi = hPhiMax
     #Raise interactions in the bulk
     for J in TbArr:
         probs = make_probs(J,hPhi)
-        fn = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_increase.txt".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
-        fn_i = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_increase_ising.txt".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
+        fn = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_increase".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
+        fn_i = fn + "_ising.txt"
+        fn_t = fn + "_tethers.txt";
         lattice,lattice_res = make_lattice(state,lattice,lattice_res)
-        state,ising,lattice,lattice_res = sim(iters_bulk_loT,state,fn,fn_i,ising,lattice,lattice_res,N3,probs,switch_probs)
+        state,ising,lattice,lattice_res = sim(iters_bulk_loT,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
     #Lower interactions in the bulk
     for J in TbArr[::-1]:
         probs = make_probs(J,hPhi)
-        fn = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_decrease.txt".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
-        fn_i = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_decrease_ising.txt".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
+        fn = dir_name+"/{0}k_d{1}-{2}_n{3}_l{4}_u{5}_i{6}_hPhi{7}_c{8}_decrease".format(J,D1,L,tether_conc,L1,chem_potent,Ti,hPhi,comp)
+        fn_i = fn + "_ising.txt"
+        fn_t = fn + "_tethers.txt";
         lattice,lattice_res = make_lattice(state,lattice,lattice_res)
-        state,ising,lattice,lattice_res = sim(iters_bulk_loT,state,fn,fn_i,ising,lattice,lattice_res,N3,probs,switch_probs)
+        state,ising,lattice,lattice_res = sim(iters_bulk_loT,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
     return
 
 #########################
@@ -153,13 +155,14 @@ def check_intersect(poly,state,t):
 # Moves for each polymer are proposed then acc/rej 
 # Ising model is sweeped over once per sweep through polymers
 # A poisson number of polymers are selected to be switched from sys -> res/res -> switch. 
-cdef sim(int iter,state,fn,fn_i,ising,lattice,lattice_res,int N3,double[:,:,:] probs,double[:,:] switch_probs):
+cdef sim(int iter,state,fn,fn_i,fn_t,ising,lattice,lattice_res,int N3,double[:,:,:] probs,double[:,:] switch_probs):
     cdef int i,a,p_total,b,n,Nsys;
     cdef int[:] pseq; 
     cdef int[:,:] sticky;
     i = 0
     f_i = open(fn_i,'w')
-    f_state = open(fn+"_pos.txt",'w')
+    f_t = open(fn_t,'w')
+    f_state = open(fn+"_polys.txt",'w')
     for i in range(iter):
         N1,N2 = len(state[0]),len(state[1])
         Nsys = N1 + N2
@@ -224,6 +227,7 @@ cdef sim(int iter,state,fn,fn_i,ising,lattice,lattice_res,int N3,double[:,:,:] p
         if i % print_interval == 0:
             ising.print_spins(f_i,i)
             print_state(state,f_state,i)
+            print_tethers(f_t,i,sticky)
 
     f_i.close()
     f_state.close()
@@ -630,7 +634,7 @@ cdef update_lattice_exchange(pos, int pt,int add_rem,LAT):
 ##################################
 def print_state(state,fh,iter):
     polys1,polys2,tethers = state
-    for i in range(len(state)):
+    for i in range(2):
         polys = state[i]
         for j in range(len(polys)):
             to_print = ""
@@ -639,6 +643,16 @@ def print_state(state,fh,iter):
                 to_print += '\t'.join([str(x),str(y),str(z)]) + "\t"
             fh.write("%d\t%d\t%d\t%d\t%s\n" % (iter,sys,i,j,to_print))
     return
+
+#Print tether positions
+def print_tethers(fh,iter,sticky):
+    to_print = ""
+    for i in range(L):
+        for j in range(L):
+            to_print += str(sticky[i,j]) + "\t"
+    fh.write("%d\t%s\n" % (iter,to_print))
+    return
+
 ##################################
 cdef double[:,:,:] make_probs(float J,float hPhi):
     cdef double[:,:,:] p = np.zeros((100,100,100),dtype = np.double)
