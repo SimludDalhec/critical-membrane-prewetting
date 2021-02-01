@@ -10,10 +10,10 @@
 NotebookFileLineBreakTest
 NotebookFileLineBreakTest
 NotebookDataPosition[       158,          7]
-NotebookDataLength[    232293,       4793]
-NotebookOptionsPosition[    229106,       4730]
-NotebookOutlinePosition[    229473,       4746]
-CellTagsIndexPosition[    229430,       4743]
+NotebookDataLength[    302988,       6729]
+NotebookOptionsPosition[    299529,       6660]
+NotebookOutlinePosition[    299896,       6676]
+CellTagsIndexPosition[    299853,       6673]
 WindowFrame->Normal*)
 
 (* Beginning of Notebook Content *)
@@ -1667,7 +1667,8 @@ Cell[BoxData[
    3.814983490385063*^9}, {3.814983617275251*^9, 3.814983617500659*^9}, {
    3.814983690268593*^9, 3.8149836994451*^9}, {3.819734210825281*^9, 
    3.819734215518057*^9}},
- CellLabel->"In[21]:=",ExpressionUUID->"0c436e60-6457-4cf2-ba57-e0cb8535ff22"]
+ CellLabel->
+  "In[677]:=",ExpressionUUID->"0c436e60-6457-4cf2-ba57-e0cb8535ff22"]
 }, Open  ]]
 }, Open  ]],
 
@@ -1914,8 +1915,6 @@ Cell[TextData[{
    3.8211871962834187`*^9}},ExpressionUUID->"94d5da17-621d-4217-91bd-\
 23dbcac19ae8"],
 
-Cell[CellGroupData[{
-
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
   RowBox[{"(*", 
@@ -1941,21 +1940,21 @@ Cell[BoxData[
      RowBox[{"\[Mu]bulk", "[", 
       RowBox[{"m", ",", "\[Phi]bulk"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"\[Lambda]\[Rho]c5", " ", "=", " ", "None"}], ";", 
-    RowBox[{"\[Lambda]\[Psi]c5", " ", "=", " ", "None"}], ";"}], 
+    RowBox[{"\[Lambda]\[Rho]3Phase", " ", "=", " ", "None"}], ";", 
+    RowBox[{"\[Lambda]\[Psi]3Phase", " ", "=", " ", "None"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"If", "[", 
      RowBox[{
-      RowBox[{"\[Lambda]\[Rho]c5", " ", "\[Equal]", " ", "None"}], ",", 
+      RowBox[{"\[Lambda]\[Rho]3Phase", "\[Equal]", " ", "None"}], ",", 
       RowBox[{
-       RowBox[{"\[Lambda]\[Rho]c5", " ", "=", " ", 
+       RowBox[{"\[Lambda]\[Rho]3Phase", " ", "=", " ", 
         RowBox[{"-", "2"}]}], ";"}]}], "]"}], ";", 
     RowBox[{"If", "[", 
      RowBox[{
-      RowBox[{"\[Lambda]\[Psi]c5", " ", "\[Equal]", " ", "None"}], ",", 
+      RowBox[{"\[Lambda]\[Psi]3Phase", " ", "\[Equal]", " ", "None"}], ",", 
       RowBox[{
-       RowBox[{"\[Lambda]\[Psi]c5", " ", "=", "2"}], ";"}]}], "]"}], ";"}], 
+       RowBox[{"\[Lambda]\[Psi]3Phase", "=", "2"}], ";"}]}], "]"}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"E5", " ", "=", " ", "\[Infinity]"}], ";", 
@@ -1970,8 +1969,8 @@ Cell[BoxData[
       RowBox[{"i", ",", 
        RowBox[{"{", 
         RowBox[{"i", ",", 
-         RowBox[{"\[Lambda]\[Rho]Plot1", "-", "\[Delta]\[Rho]"}], ",", 
-         RowBox[{"\[Lambda]\[Rho]Plot1", " ", "+", " ", "\[Delta]\[Rho]"}], 
+         RowBox[{"\[Lambda]\[Rho]3Phase", "-", "\[Delta]\[Rho]"}], ",", 
+         RowBox[{"\[Lambda]\[Rho]3Phase", " ", "+", " ", "\[Delta]\[Rho]"}], 
          ",", "d\[Rho]"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"\[Lambda]\[Psi]s", " ", "=", " ", 
@@ -1979,9 +1978,9 @@ Cell[BoxData[
       RowBox[{"i", ",", 
        RowBox[{"{", 
         RowBox[{"i", ",", 
-         RowBox[{"\[Lambda]\[Psi]Plot1", " ", "-", " ", "\[Delta]\[Psi]"}], 
+         RowBox[{"\[Lambda]\[Psi]3Phase", " ", "-", " ", "\[Delta]\[Psi]"}], 
          ",", 
-         RowBox[{"\[Lambda]\[Psi]Plot1", "+", " ", "\[Delta]\[Psi]"}], ",", 
+         RowBox[{"\[Lambda]\[Psi]3Phase", "+", " ", "\[Delta]\[Psi]"}], ",", 
          "d\[Psi]"}], "}"}]}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    "\[IndentingNewLine]", 
    RowBox[{"(*", 
@@ -1990,25 +1989,23 @@ Cell[BoxData[
      "point"}], " ", "*)"}], "\[IndentingNewLine]", 
    RowBox[{"(*", 
     RowBox[{
-     RowBox[{
-      RowBox[{"a", "=", " ", "1.2"}], ";", 
-      RowBox[{"m", "=", "2"}], ";", 
-      RowBox[{"\[Phi]bulk", "=", 
-       RowBox[{"-", "2"}]}], ";", 
-      RowBox[{"\[Mu]b", " ", "=", " ", 
+     RowBox[{"a", "=", " ", "1.2"}], ";", 
+     RowBox[{"m", "=", "2"}], ";", 
+     RowBox[{"\[Phi]bulk", "=", 
+      RowBox[{"-", "2"}]}], ";", 
+     RowBox[{"\[Mu]b", " ", "=", " ", 
+      RowBox[{
        RowBox[{
-        RowBox[{
-         RowBox[{"\[Mu]bulk", "[", 
-          RowBox[{"m", ",", "\[Phi]bulk"}], "]"}], "\[IndentingNewLine]", 
-         "\[Lambda]\[Rho]Plot1"}], " ", "=", "0.3"}]}], ";", " ", 
-      RowBox[{"\[Lambda]\[Psi]Plot1", " ", "=", "0.7"}], ";"}], 
-     "\[IndentingNewLine]", ";"}], "*)"}], "\[IndentingNewLine]", 
+        RowBox[{"\[Mu]bulk", "[", 
+         RowBox[{"m", ",", "\[Phi]bulk"}], "]"}], "\[IndentingNewLine]", 
+        "\[Lambda]\[Rho]Plot1"}], " ", "=", "0.3"}]}], ";", " ", 
+     RowBox[{"\[Lambda]\[Psi]Plot1", " ", "=", "0.7"}], ";"}], "*)"}], 
+   "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"Off", "[", 
      RowBox[{"NSolve", "::", "ratnz"}], "]"}], ";", 
     RowBox[{"Off", "[", 
-     RowBox[{"NIntegrate", "::", "nlim"}], "]"}], ";"}], 
-   "\[IndentingNewLine]", 
+     RowBox[{"NIntegrate", "::", "nlim"}], "]"}]}], "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"phasesAll", "=", 
      RowBox[{"ParallelTable", "[", 
@@ -2032,10 +2029,10 @@ Cell[BoxData[
      RowBox[{"MakeTables", "[", "phasesAll", "]"}]}], ";"}], 
    "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"\[Lambda]\[Rho]c5", " ", "=", " ", 
+    RowBox[{"\[Lambda]\[Rho]3Phase", "=", " ", 
      RowBox[{"\[Lambda]3Phase", "[", 
       RowBox[{"[", "2", "]"}], "]"}]}], " ", ";", 
-    RowBox[{"\[Lambda]\[Psi]c5", " ", "=", " ", 
+    RowBox[{"\[Lambda]\[Psi]3Phase", " ", "=", " ", 
      RowBox[{"\[Lambda]3Phase", "[", 
       RowBox[{"[", "1", "]"}], "]"}]}], ";"}]}]}]], "Input",
  CellChangeTimes->{{3.801475608890285*^9, 3.8014756370540323`*^9}, {
@@ -2264,19 +2261,11 @@ Cell[BoxData[
    3.820836273590453*^9, 3.8208362878021793`*^9}, {3.821187006096629*^9, 
    3.821187142774506*^9}, {3.8211872082549343`*^9, 3.82118720904989*^9}, {
    3.82118732312438*^9, 3.821187325330068*^9}, {3.821187701082574*^9, 
-   3.821187726149829*^9}},ExpressionUUID->"4d584e4b-3a0d-4ef8-8b5f-\
-a0671109c167"],
-
-Cell[BoxData["$Aborted"], "Output",
- CellChangeTimes->{3.821187150075055*^9, 3.821187691800371*^9},
- CellLabel->
-  "Out[586]=",ExpressionUUID->"8b1c71f0-493a-456b-84a4-f0ba33710e30"]
-}, Open  ]],
-
-Cell[BoxData[""], "Input",
- CellChangeTimes->{{3.820149931456999*^9, 
-  3.8201499314758263`*^9}},ExpressionUUID->"fb440e65-c9d4-4744-8942-\
-553aff1ef73a"]
+   3.821187726149829*^9}, {3.821187802775963*^9, 3.821187856035857*^9}, {
+   3.8211879336963243`*^9, 3.8211879346301613`*^9}, {3.821187964666601*^9, 
+   3.821187971556704*^9}, {3.821188255549309*^9, 
+   3.821188262321954*^9}},ExpressionUUID->"4d584e4b-3a0d-4ef8-8b5f-\
+a0671109c167"]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -2287,6 +2276,8 @@ Demonstrates Gradient Construction at each Coexistence region\
  CellChangeTimes->{{3.821187241355094*^9, 
   3.821187263416744*^9}},ExpressionUUID->"2d89ad4b-2fcd-48c3-b4df-\
 7f22d64f1ee4"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{"\[IndentingNewLine]", 
@@ -2303,29 +2294,24 @@ Cell[BoxData[
            ",", "\[Mu]b"}], "]"}], "\[Equal]", " ", 
          RowBox[{"\[Psi]Deriv", "[", 
           RowBox[{
-          "\[Psi]", ",", "\[Rho]", ",", "h\[Psi]", ",", "\[Lambda]\[Psi]c5", 
-           ",", "a"}], "]"}], "\[Equal]", " ", 
+          "\[Psi]", ",", "\[Rho]", ",", "h\[Psi]", ",", 
+           "\[Lambda]\[Psi]3Phase", ",", "a"}], "]"}], "\[Equal]", " ", 
          RowBox[{"\[Rho]Deriv", "[", 
           RowBox[{
           "\[Rho]", ",", "\[Phi]1", ",", "\[Psi]", ",", "\[Rho]o", ",", 
-           "\[Lambda]\[Rho]c5", ",", "h\[Phi]", ",", "h\[Psi]"}], "]"}], 
+           "\[Lambda]\[Rho]3Phase", ",", "h\[Phi]", ",", "h\[Psi]"}], "]"}], 
          "\[Equal]", " ", "0"}], "}"}], ",", "\[IndentingNewLine]", 
        RowBox[{"{", 
         RowBox[{"\[Rho]", ",", "\[Psi]", ",", "\[Phi]1"}], "}"}], ",", 
        "Reals"}], "]"}]}], ";"}], "\[IndentingNewLine]", 
    RowBox[{
-    RowBox[{"\[Phi]1c5", " ", "=", " ", 
+    RowBox[{"\[Phi]13Phase", " ", "=", " ", 
      RowBox[{"\[Phi]1", " ", "/.", " ", "solTab"}]}], " ", ";", " ", 
-    RowBox[{"\[Psi]c5", " ", "=", " ", 
+    RowBox[{"\[Psi]3Phase", "=", " ", 
      RowBox[{"\[Psi]", " ", "/.", " ", "solTab"}]}], ";", "  ", 
-    RowBox[{"\[Rho]c5", " ", "=", " ", 
+    RowBox[{"\[Rho]3Phase", "=", " ", 
      RowBox[{"\[Rho]", " ", "/.", " ", "solTab"}]}], ";"}], 
    "\[IndentingNewLine]", 
-   RowBox[{
-    RowBox[{"\[Lambda]\[Rho]Plot1", " ", "=", " ", 
-     RowBox[{"-", "1.79"}]}], ";", 
-    RowBox[{"\[Lambda]\[Psi]Plot1", " ", "=", " ", "0.94"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"\[Lambda]\[Rho]Plot1", " ", "=", " ", 
      RowBox[{"-", "3.96"}]}], ";", 
@@ -2340,7 +2326,7 @@ Cell[BoxData[
     RowBox[{"\[Lambda]\[Rho]Plot2", "  ", "=", " ", 
      RowBox[{"-", "2.65"}]}], ";", " ", 
     RowBox[{"\[Lambda]\[Psi]Plot2", " ", "=", " ", "3.0"}], ";"}], 
-   "\[IndentingNewLine]", "\[IndentingNewLine]", "\[IndentingNewLine]", 
+   "\[IndentingNewLine]", "\[IndentingNewLine]", 
    RowBox[{
     RowBox[{"solPlot1", " ", "=", " ", 
      RowBox[{"NSolve", "[", 
@@ -2643,8 +2629,8 @@ Cell[BoxData[
              RowBox[{"Hsurface", "[", 
               RowBox[{
               "\[Phi]1", ",", "\[Psi]", ",", "\[Rho]", ",", "a", ",", 
-               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]c5", ",", 
-               "\[Lambda]\[Psi]c5", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
+               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]3Phase", ",",
+                "\[Lambda]\[Psi]3Phase", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
                "\[Rho]o"}], "]"}], ",", "\[Rho]"}], "]"}], " ", "\[Equal]", 
            " ", "0"}], ",", 
           RowBox[{
@@ -2653,8 +2639,8 @@ Cell[BoxData[
              RowBox[{"Hsurface", "[", 
               RowBox[{
               "\[Phi]1", ",", "\[Psi]", ",", "\[Rho]", ",", "a", ",", 
-               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]c5", ",", 
-               "\[Lambda]\[Psi]c5", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
+               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]3Phase", ",",
+                "\[Lambda]\[Psi]3Phase", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
                "\[Rho]o"}], "]"}], ",", "\[Psi]"}], "]"}], " ", "\[Equal]", 
            " ", "0"}]}], "  ", "}"}], ",", 
         RowBox[{"{", 
@@ -2674,8 +2660,8 @@ Cell[BoxData[
              RowBox[{"Hsurface", "[", 
               RowBox[{
               "\[Phi]1", ",", "\[Psi]", ",", "\[Rho]", ",", "a", ",", 
-               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]c5", ",", 
-               "\[Lambda]\[Psi]c5", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
+               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]3Phase", ",",
+                "\[Lambda]\[Psi]3Phase", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
                "\[Rho]o"}], "]"}], ",", "\[Rho]"}], "]"}], " ", "\[Equal]", 
            " ", "0"}], ",", 
           RowBox[{
@@ -2684,8 +2670,8 @@ Cell[BoxData[
              RowBox[{"Hsurface", "[", 
               RowBox[{
               "\[Phi]1", ",", "\[Psi]", ",", "\[Rho]", ",", "a", ",", 
-               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]c5", ",", 
-               "\[Lambda]\[Psi]c5", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
+               "\[Phi]bulk", ",", "\[Mu]b", ",", "\[Lambda]\[Rho]3Phase", ",",
+                "\[Lambda]\[Psi]3Phase", ",", "h\[Psi]", ",", "h\[Phi]", ",", 
                "\[Rho]o"}], "]"}], ",", "\[Psi]"}], "]"}], " ", "\[Equal]", 
            " ", "0"}]}], "  ", "}"}], ",", 
         RowBox[{"{", 
@@ -2775,9 +2761,9 @@ Cell[BoxData[
             RowBox[{
              RowBox[{"\[Rho]Sols3Phase", "[", "\[Phi]1", "]"}], "[", 
              RowBox[{"[", "i", "]"}], "]"}], ",", " ", "a", ",", 
-            "\[Lambda]\[Rho]c5", ",", "\[Lambda]\[Psi]c5", ",", "h\[Psi]", 
-            ",", "h\[Phi]", ",", "\[Rho]o"}], "]"}], ",", "\[Phi]1"}], 
-         "]"}]}], ",", 
+            "\[Lambda]\[Rho]3Phase", ",", "\[Lambda]\[Psi]3Phase", ",", 
+            "h\[Psi]", ",", "h\[Phi]", ",", "\[Rho]o"}], "]"}], ",", 
+          "\[Phi]1"}], "]"}]}], ",", 
        RowBox[{"{", 
         RowBox[{"i", ",", "1", ",", 
          RowBox[{"Length", "[", 
@@ -2872,9 +2858,19 @@ Cell[BoxData[
    3.8201648474297543`*^9, 3.8201648575615788`*^9}, {3.820247157506033*^9, 
    3.820247216780332*^9}, {3.8202473001682463`*^9, 3.820247320689034*^9}, {
    3.8202473677954893`*^9, 3.8202473733035192`*^9}, {3.821187224107312*^9, 
-   3.821187238531088*^9}, {3.821187330091054*^9, 
-   3.8211873895659723`*^9}},ExpressionUUID->"070d3251-27ec-427a-af40-\
-9c931ea9cc5e"],
+   3.821187238531088*^9}, {3.821187330091054*^9, 3.8211873895659723`*^9}, {
+   3.8211878636383677`*^9, 3.821187914881473*^9}, {3.821187985256914*^9, 
+   3.8211880017380238`*^9}, {3.821188038057652*^9, 3.821188047813569*^9}},
+ CellLabel->
+  "In[641]:=",ExpressionUUID->"070d3251-27ec-427a-af40-9c931ea9cc5e"],
+
+Cell[BoxData["0.48`"], "Output",
+ CellChangeTimes->{3.821188168690605*^9},
+ CellLabel->
+  "Out[644]=",ExpressionUUID->"07cc7ed4-7a18-42cc-9352-984fa4458784"]
+}, Open  ]],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -2995,33 +2991,33 @@ Cell[BoxData[
           RowBox[{
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "1", "]"}], "]"}], ",", 
              RowBox[{"gradbulk", "[", 
               RowBox[{
-               RowBox[{"\[Phi]1c5", "[", 
+               RowBox[{"\[Phi]13Phase", "[", 
                 RowBox[{"[", "1", "]"}], "]"}], ",", 
                RowBox[{"\[Phi]b", "[", 
                 RowBox[{"m", ",", "\[Mu]b"}], "]"}], ",", "\[Mu]b"}], "]"}]}],
              "}"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "3", "]"}], "]"}], ",", 
              RowBox[{"gradbulk", "[", 
               RowBox[{
-               RowBox[{"\[Phi]1c5", "[", 
+               RowBox[{"\[Phi]13Phase", "[", 
                 RowBox[{"[", "3", "]"}], "]"}], ",", 
                RowBox[{"\[Phi]b", "[", 
                 RowBox[{"m", ",", "\[Mu]b"}], "]"}], ",", "\[Mu]b"}], "]"}]}],
              "}"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "5", "]"}], "]"}], ",", 
              RowBox[{"gradbulk", "[", 
               RowBox[{
-               RowBox[{"\[Phi]1c5", "[", 
+               RowBox[{"\[Phi]13Phase", "[", 
                 RowBox[{"[", "5", "]"}], "]"}], ",", 
                RowBox[{"\[Phi]b", "[", 
                 RowBox[{"m", ",", "\[Mu]b"}], "]"}], ",", "\[Mu]b"}], "]"}]}],
@@ -3040,18 +3036,18 @@ Cell[BoxData[
           RowBox[{
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "1", "]"}], "]"}], ",", 
              RowBox[{"gradbulk", "[", 
               RowBox[{
-               RowBox[{"\[Phi]1c5", "[", 
+               RowBox[{"\[Phi]13Phase", "[", 
                 RowBox[{"[", "1", "]"}], "]"}], ",", 
                RowBox[{"\[Phi]b", "[", 
                 RowBox[{"m", ",", "\[Mu]b"}], "]"}], ",", "\[Mu]b"}], "]"}]}],
              "}"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "1", "]"}], "]"}], ",", 
              RowBox[{"-", "1"}]}], "}"}]}], "}"}], ",", 
          RowBox[{"PlotStyle", "\[Rule]", 
@@ -3064,18 +3060,18 @@ Cell[BoxData[
           RowBox[{
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "3", "]"}], "]"}], ",", 
              RowBox[{"gradbulk", "[", 
               RowBox[{
-               RowBox[{"\[Phi]1c5", "[", 
+               RowBox[{"\[Phi]13Phase", "[", 
                 RowBox[{"[", "3", "]"}], "]"}], ",", 
                RowBox[{"\[Phi]b", "[", 
                 RowBox[{"m", ",", "\[Mu]b"}], "]"}], ",", "\[Mu]b"}], "]"}]}],
              "}"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "3", "]"}], "]"}], ",", 
              RowBox[{"-", "1"}]}], "}"}]}], "}"}], ",", 
          RowBox[{"PlotStyle", "\[Rule]", 
@@ -3088,18 +3084,18 @@ Cell[BoxData[
           RowBox[{
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "5", "]"}], "]"}], ",", 
              RowBox[{"gradbulk", "[", 
               RowBox[{
-               RowBox[{"\[Phi]1c5", "[", 
+               RowBox[{"\[Phi]13Phase", "[", 
                 RowBox[{"[", "5", "]"}], "]"}], ",", 
                RowBox[{"\[Phi]b", "[", 
                 RowBox[{"m", ",", "\[Mu]b"}], "]"}], ",", "\[Mu]b"}], "]"}]}],
              "}"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "5", "]"}], "]"}], ",", 
              RowBox[{"-", "1"}]}], "}"}]}], "}"}], ",", 
          RowBox[{"PlotStyle", "\[Rule]", 
@@ -3120,7 +3116,7 @@ Cell[BoxData[
              RowBox[{"Darker", "[", "Blue", "]"}]}], "]"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "1", "]"}], "]"}], ",", 
              RowBox[{"-", "1"}]}], "}"}]}], "]"}], "}"}], ",", 
         RowBox[{"{", 
@@ -3132,7 +3128,7 @@ Cell[BoxData[
              ",", "Orange"}], "]"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "3", "]"}], "]"}], ",", 
              RowBox[{"-", "1"}]}], "}"}]}], "]"}], "}"}], ",", 
         RowBox[{"{", 
@@ -3145,7 +3141,7 @@ Cell[BoxData[
              RowBox[{"Darker", "[", "Green", "]"}]}], "]"}], ",", 
            RowBox[{"{", 
             RowBox[{
-             RowBox[{"\[Phi]1c5", "[", 
+             RowBox[{"\[Phi]13Phase", "[", 
               RowBox[{"[", "5", "]"}], "]"}], ",", 
              RowBox[{"-", "1"}]}], "}"}]}], "]"}], "}"}]}], "}"}]}], ",", 
      StyleBox["\n", "Code"], 
@@ -3244,11 +3240,12 @@ Cell[BoxData[
    3.82016639452984*^9, 3.820166410268512*^9}, {3.820166497107197*^9, 
    3.820166505776547*^9}, {3.8201665420586843`*^9, 3.820166542874526*^9}, {
    3.820246509192326*^9, 3.820246515209054*^9}, {3.8202466349157124`*^9, 
-   3.820246650425681*^9}, 
-   3.8211874395120983`*^9},ExpressionUUID->"644b01d0-10c6-4bdd-9751-\
-3e736b2724e9"],
+   3.820246650425681*^9}, 3.8211874395120983`*^9, {3.8211880937884417`*^9, 
+   3.821188175010107*^9}},
+ CellLabel->
+  "In[670]:=",ExpressionUUID->"644b01d0-10c6-4bdd-9751-3e736b2724e9"],
 
-Cell[BoxData[{
+Cell[BoxData[
  GraphicsBox[{{{{}, {}, 
      TagBox[
       {GrayLevel[0], Thickness[0.004], Opacity[1.], LineBox[CompressedData["
@@ -3296,7 +3293,7 @@ NRty8MrIWg+HMgqKdjnyfB04ONV5V1A8j4Jun3N3tLpz8JHJzCsKbyloEDR2
 IiZOcLAKrcBJf4KCgcJZUB3PwSgkshVPUTBSe9HxuHMcHNHmsNtfTMHwAR9N
 90sc/P9/hfFWGUv1rnLwfwFqgLZ+
         "]]},
-      Annotation[#, "Charting`Private`Tag$61051#1"]& ]}, {}}, {{{}, {}, 
+      Annotation[#, "Charting`Private`Tag$632427#1"]& ]}, {}}, {{{}, {}, 
      TagBox[
       {RGBColor[0.5, 0, 0.5], AbsoluteThickness[1.6], Opacity[1.], 
        Dashing[{Small, Small}], LineBox[CompressedData["
@@ -3356,7 +3353,7 @@ o6wvEhDY1Jetl9vOIocUnObChQTuq157Z2MPi7TevWQbU0Rg97T2quM8Fjnl
 KeX5zhFYQa7Aaek4izQPDLKXkxIYRSW0YD6L1Bn9alcgI4/jW7cEBolYJHff
 q35XOXn8/39Gujhor51myOP/AghqEKM=
         "]]},
-      Annotation[#, "Charting`Private`Tag$61824#1"]& ], 
+      Annotation[#, "Charting`Private`Tag$633200#1"]& ], 
      TagBox[
       {RGBColor[0.5, 0, 0.5], AbsoluteThickness[1.6], Opacity[1.], 
        Dashing[{Small, Small}], LineBox[CompressedData["
@@ -3407,7 +3404,7 @@ O81B29UM/OC3yluU08joUIOK+1IGzKhSmf3k/itI8HI6ps4ATm4e0ami0cwb
 MgmJFAPxHGPDp7WkLy1X8SVZch7+1RcMMenLyEamipkCoykPJWkbjb6/1v+k
 PDUFFk/O6RU8odH/AOz5hsc=
         "]]},
-      Annotation[#, "Charting`Private`Tag$61824#2"]& ], 
+      Annotation[#, "Charting`Private`Tag$633200#2"]& ], 
      TagBox[
       {RGBColor[0.5, 0, 0.5], AbsoluteThickness[1.6], Opacity[1.], 
        Dashing[{Small, Small}], LineBox[CompressedData["
@@ -3436,7 +3433,7 @@ ntj5A8PpP56IYk9zGvm/6eAHVtG86T8JqQOIiQ/5vxZRSrSdtuk/dMmkwJ8E
 +b86uioUabDpP97pRfm1+fi/gKMzdTOq6T/z4SroEvj4vy6Yv+1Eqek/NEEh
 zA==
         "]]},
-      Annotation[#, "Charting`Private`Tag$61824#3"]& ]}, {}}, {{{}, {}, 
+      Annotation[#, "Charting`Private`Tag$633200#3"]& ]}, {}}, {{{}, {}, 
      TagBox[
       {RGBColor[0, 1, 0], AbsoluteThickness[1.6], Opacity[1.], 
        Dashing[{Small, Small}], LineBox[CompressedData["
@@ -3470,7 +3467,7 @@ Nn99bfMAjVkRkqQBcwp8CrvrU0ZpvGqDIcfakgKKedVz7UcaK7+JL9xlRQGJ
 SpDANI1HP6k04q0pOP7aIyR0nsZtuMmvWEjB///CTJ2nScSGgn8A8RBOfg==
 
         "]]},
-      Annotation[#, "Charting`Private`Tag$61879#1"]& ]}, {}}, {{{}, {}, 
+      Annotation[#, "Charting`Private`Tag$633255#1"]& ]}, {}}, {{{}, {}, 
      TagBox[
       {RGBColor[1, 0, 0], AbsoluteThickness[1.6], Opacity[1.], 
        Dashing[{Small, Small}], LineBox[CompressedData["
@@ -3524,7 +3521,7 @@ TyTdFGsnKe6TuNJDhgTWcPZWTv1AUoKZtg9+RgQerDV+atpPUppdv3vOGRN4
 z50PlRe+kNQhqXXXYjcRmE7L3LHqG0mFZYPxvc0ERj5nWfg7SXUmODWkmxA4
 oMPS1W2epEr6Q7fmbiHw//+DSnpRcq8UCPwfVUpQHA==
         "]]},
-      Annotation[#, "Charting`Private`Tag$61934#1"]& ], 
+      Annotation[#, "Charting`Private`Tag$633310#1"]& ], 
      TagBox[
       {RGBColor[1, 0, 0], AbsoluteThickness[1.6], Opacity[1.], 
        Dashing[{Small, Small}], LineBox[CompressedData["
@@ -3617,7 +3614,7 @@ cjqo/AYPFmUk9UZvi8Io3fViCzN5YGkgLsAqicCNww/qptt4EF7oLXN0110c
 S/pYWivXBNVs3rqKilActBlfonu2CbiqS/0I+TtoGBhuXtTSBP8Dc29XkA==
 
         "]]},
-      Annotation[#, "Charting`Private`Tag$61934#2"]& ], 
+      Annotation[#, "Charting`Private`Tag$633310#2"]& ], 
      TagBox[
       {RGBColor[1, 0, 0], AbsoluteThickness[1.6], Opacity[1.], 
        Dashing[{Small, Small}], LineBox[CompressedData["
@@ -3663,7 +3660,7 @@ E8fSCk/CTIWO9Y5tVuwbyDQKPpTCUGHvj5rziIZscKX3f1ruqEJWXeSq4H9f
 gQM7Yx/XWYUWd+FmLjcT/vvbeBfcVBBs+i6WtuYSsnCuvG+3Cn8DghH0Rw==
 
         "]]},
-      Annotation[#, "Charting`Private`Tag$61934#3"]& ]}, {}}, {{{}, {}, 
+      Annotation[#, "Charting`Private`Tag$633310#3"]& ]}, {}}, {{{}, {}, 
      TagBox[
       {RGBColor[0, 0, 1], Thickness[0.004], Opacity[1.], 
        LineBox[CompressedData["
@@ -3729,7 +3726,7 @@ FvlwUE0j4gKBDfb7aWR2sMhgVynlmwkE7qk2y7H4zCLjxwwHSy4SeFdqx8vT
 31nk0oG/VwoSCUzQH2xfwmORCey89DmXCQzskDY8ziJpB+0Fy68QOPi9tbuH
 hEXKtHtoWycT+P/9lTRt4pl4XSXwfwF7g7GX
         "]]},
-      Annotation[#, "Charting`Private`Tag$61989#1"]& ], 
+      Annotation[#, "Charting`Private`Tag$633365#1"]& ], 
      TagBox[
       {RGBColor[0, 0, 1], Thickness[0.004], Opacity[1.], 
        LineBox[CompressedData["
@@ -3805,7 +3802,7 @@ bYM9zeMLMLg/JjTyJQUcTz9aJ/33AgxBNXMaHTjfq9LOuHYvQNGJ6oPEWwpo
 1fs13m5ZgNVKP3Y8mqRArreJ1Oe6BTjec2ITtUiB2cv6V5c/XoD1Vim8J2ps
 8H8Aa75z
         "]]},
-      Annotation[#, "Charting`Private`Tag$61989#2"]& ], 
+      Annotation[#, "Charting`Private`Tag$633365#2"]& ], 
      TagBox[
       {RGBColor[0, 0, 1], Thickness[0.004], Opacity[1.], 
        LineBox[CompressedData["
@@ -3838,7 +3835,7 @@ OO8vAqnkWXeTVImw4ifBQrYQ9oc8Ml82qES9sOUkaSGEesOs0ENdSmTxY8Ab
 J1EV2Fbz6643K1He1atvmF5VUOi3Re8fsRKxJWZk6ctKkP1MXtSsVCJewrBl
 8q1K+A+E02dM
         "]]},
-      Annotation[#, "Charting`Private`Tag$61989#3"]& ]}, {}}, {{}, {
+      Annotation[#, "Charting`Private`Tag$633365#3"]& ]}, {}}, {{}, {
      {RGBColor[0, 0, 1], PointSize[0.012833333333333334`], AbsoluteThickness[
       1.6], PointBox[{{-2.8745975266971917`, 
        1.3109655114674477`}, {-2.3766153566428163`, 0.5140346883259156}, {
@@ -3950,7 +3947,7 @@ J1EV2Fbz6643K1He1atvmF5VUOi3Re8fsRKxJWZk6ctKkP1MXtSsVCJewrBl
   GridLinesStyle->Directive[
     GrayLevel[0.5, 0.4]],
   ImagePadding->All,
-  ImageSize->{1024.4444444444448`, Automatic},
+  ImageSize->600,
   Method->{
    "DefaultBoundaryStyle" -> Automatic, 
     "DefaultGraphicsInteraction" -> {
@@ -3978,23 +3975,30 @@ J1EV2Fbz6643K1He1atvmF5VUOi3Re8fsRKxJWZk6ctKkP1MXtSsVCJewrBl
      Scaled[0.05], 
      Scaled[0.05]}},
   Ticks->{Automatic, Automatic},
-  TicksStyle->Directive["Label", 14]], "\[IndentingNewLine]", 
- RowBox[{
-  RowBox[{"Export", "[", 
-   RowBox[{"\"\<./Surface_lines_three_phase.svg\>\"", ",", 
-    RowBox[{"p1", "/.", 
-     RowBox[{
-      RowBox[{"Line", "[", "x_", "]"}], "\[RuleDelayed]", 
-      RowBox[{"Line", "@", 
-       RowBox[{"Split", "[", 
-        RowBox[{"x", ",", 
-         RowBox[{
+  TicksStyle->Directive["Label", 14]]], "Output",
+ CellChangeTimes->{3.821188222514996*^9},
+ CellLabel->
+  "Out[670]=",ExpressionUUID->"5e9bff19-b79d-4570-835a-dbbb0cc30722"]
+}, Open  ]],
+
+Cell[BoxData[
+ RowBox[{"\[IndentingNewLine]", 
+  RowBox[{
+   RowBox[{"Export", "[", 
+    RowBox[{"\"\<./Surface_lines_three_phase.svg\>\"", ",", 
+     RowBox[{"p1", "/.", 
+      RowBox[{
+       RowBox[{"Line", "[", "x_", "]"}], "\[RuleDelayed]", 
+       RowBox[{"Line", "@", 
+        RowBox[{"Split", "[", 
+         RowBox[{"x", ",", 
           RowBox[{
-           RowBox[{"Norm", "[", 
-            RowBox[{"#", "-", "#2"}], "]"}], "<", "0.5"}], "&"}]}], 
-        "]"}]}]}]}]}], "]"}], ";"}]}], "Input",
- CellChangeTimes->{{3.821187460612195*^9, 
-  3.821187465223629*^9}},ExpressionUUID->"b275c526-62e7-45fb-a06d-\
+           RowBox[{
+            RowBox[{"Norm", "[", 
+             RowBox[{"#", "-", "#2"}], "]"}], "<", "0.5"}], "&"}]}], 
+         "]"}]}]}]}]}], "]"}], ";"}]}]], "Input",
+ CellChangeTimes->{{3.821187460612195*^9, 3.821187465223629*^9}, 
+   3.821188179795437*^9},ExpressionUUID->"b275c526-62e7-45fb-a06d-\
 fc54a89a434e"]
 }, Open  ]],
 
@@ -4012,6 +4016,8 @@ Cell["Chemical Potential and \[Rho]-\[Psi] Plots ", "Section",
    3.82118749603179*^9, {3.821187541653912*^9, 
    3.821187564748495*^9}},ExpressionUUID->"025b89e9-df8b-46f7-86e6-\
 6ca44d78e297"],
+
+Cell[CellGroupData[{
 
 Cell[BoxData[
  RowBox[{
@@ -4040,8 +4046,8 @@ Cell[BoxData[
         RowBox[{
          RowBox[{"{", 
           RowBox[{"{", 
-           RowBox[{"\[Lambda]\[Psi]c5", ",", "\[Lambda]\[Rho]c5"}], "}"}], 
-          "}"}], ",", 
+           RowBox[{"\[Lambda]\[Psi]3Phase", ",", "\[Lambda]\[Rho]3Phase"}], 
+           "}"}], "}"}], ",", 
          RowBox[{"PlotStyle", "\[Rule]", 
           RowBox[{"Lighter", "[", 
            RowBox[{"Lighter", "[", "Blue", "]"}], "]"}]}], ",", 
@@ -4259,9 +4265,1931 @@ Cell[BoxData[
    3.819626572174065*^9}, {3.819626824017696*^9, 3.81962743323112*^9}, {
    3.819627463615451*^9, 3.819627534846212*^9}, {3.8196280058010397`*^9, 
    3.819628015959341*^9}, {3.819628300911509*^9, 3.8196284546852493`*^9}, 
-   3.82118749603179*^9, {3.821187541653912*^9, 
-   3.821187578869706*^9}},ExpressionUUID->"fc84c69f-30dc-40b8-9db3-\
-559a789caef6"]
+   3.82118749603179*^9, {3.821187541653912*^9, 3.821187578869706*^9}, {
+   3.821188011809774*^9, 3.8211880173163557`*^9}},
+ CellLabel->
+  "In[671]:=",ExpressionUUID->"fc84c69f-30dc-40b8-9db3-559a789caef6"],
+
+Cell[BoxData[
+ TemplateBox[{GraphicsBox[{{{}, {{{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666]], 
+         PointBox[{{1.4000000000000001`, -4.}, {1.3, -3.7}, {1.3, -3.6}, {
+          1.3, -3.5}, {1.2000000000000002`, -3.1}, {
+          1.1, -2.5999999999999996`}, {1., -2.2}, {
+          1., -2.0999999999999996`}}]}, {
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]]], 
+         PointBox[{{0.8, -1.7999999999999998`}, {
+          0.7000000000000001, -1.6999999999999997`}, {
+          0.2, -1.0999999999999996`}, {0.1, -1.}, {
+          0., -0.8999999999999999}}]}, {
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0]], 
+         PointBox[CompressedData["
+1:eJxTTMoPSmViYGAQAWIQbWIMAvwOaWDAdoABDATQ+DwOs2aCAOuBs2dAAMGH
+0LxwPkQ9hwNY2RkWqHoEH6KOE02exQGiDybPCuenQ9yBJs/oAHa2MTNUngnO
+h5j3xx7ifiao/D84H2IOgwMq/4c91Fyo+T/hfIh5X+wh7mWAqv9gDzXnAAD4
+ToHo
+          "]]}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666]]}, {
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]]]}, {
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 
+           0]]}, {}, {}, {}, {}, {}, {}, {}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666]]}, {
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]]]}, {
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 
+           0]]}, {}, {}, {}, {}, {}, {}, {}}}, {{}, {}}}, {{}, {{{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[5, 9], 0.5555555555555556], 
+           NCache[
+            Rational[5, 9], 0.5555555555555556], 1]], 
+         GeometricTransformationBox[
+          InsetBox[
+           BoxData[
+            FormBox[
+             StyleBox[
+              GraphicsBox[
+               DiskBox[{0, 0}, 1]], 
+              GraphicsBoxOptions -> {DefaultBaseStyle -> Directive[
+                  PointSize[0.012833333333333334`], 
+                  AbsoluteThickness[1.6], 
+                  RGBColor[
+                   Rational[5, 9], 
+                   Rational[5, 9], 1]]}, StripOnInput -> False], 
+             TraditionalForm]], {0., 0.}, Automatic, 
+           Offset[10]], {{{1., -2.}}, {{1., -2.}}}]}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[5, 9], 0.5555555555555556], 
+           NCache[
+            Rational[5, 9], 0.5555555555555556], 1]]}, {}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[5, 9], 0.5555555555555556], 
+           NCache[
+            Rational[5, 9], 0.5555555555555556], 1]]}, {}}}, {{}, {}}}}, {
+    Frame -> True, PlotRange -> {All, All}, DisplayFunction -> Identity, 
+     DisplayFunction -> Identity, AspectRatio -> 
+     NCache[GoldenRatio^(-1), 0.6180339887498948], Axes -> {True, True}, 
+     AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, DisplayFunction :> 
+     Identity, Frame -> {{False, False}, {False, False}}, 
+     FrameLabel -> {{None, None}, {None, None}}, 
+     FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], 
+     Method -> {
+      "OptimizePlotMarkers" -> True, 
+       "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+           (Identity[#]& )[
+            Part[#, 1]], 
+           (Identity[#]& )[
+            Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+           (Identity[#]& )[
+            Part[#, 1]], 
+           (Identity[#]& )[
+            Part[#, 2]]}& )}}, PlotRange -> {{0, 4.}, {-4., 0}}, 
+     PlotRangeClipping -> True, PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.05], 
+        Scaled[0.02]}}, Ticks -> {Automatic, Automatic}}],SubscriptBox[
+   "\[Lambda]", "\[Psi]"],SubscriptBox["\[Lambda]", "\[Rho]"]},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[
+       RotationBox[#3, BoxRotation -> 1.5707963267948966`], DefaultBaseStyle -> 
+       "LabeledLabel"], 
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}, {"", 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {1, 2}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"{", 
+         RowBox[{#2, ",", #3}], "}"}], ",", 
+       RowBox[{"{", 
+         RowBox[{"Bottom", ",", "Left"}], "}"}], ",", 
+       RowBox[{"RotateLabel", "\[Rule]", "True"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.821188226539555*^9},
+ CellLabel->
+  "Out[671]=",ExpressionUUID->"c5c7a412-8414-4167-87b1-11fe55493236"],
+
+Cell[BoxData[
+ TemplateBox[{GraphicsBox[{{{}, {{{}, {}, {
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.4296748866238564`, -1.601100519405973}, {
+          1.5327383954648002`, -1.106407284109297}}]}, {
+         Hue[0.9060679774997897, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.5081108743224847`, -1.5700519873907164`}, {
+          1.4823743581171551`, -1.0535716339093317`}}]}, {
+         Hue[0.1421359549995791, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.48984281355239, -1.553181804213185}, {
+          1.513656101127788, -1.024727815180956}}]}, {
+         Hue[0.37820393249936934`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.4706078114095835`, -1.5359559191275036`}, {
+          1.5440386118053548`, -0.99529549984037}}]}, {
+         Hue[0.6142719099991583, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.5233050969242754`, -1.4844666699186124`}, {
+          1.538354032069762, -0.9009098431701453}}]}, {
+         Hue[0.8503398874989481, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.5502414994589897`, -1.4108876798685348`}, {
+          1.5849303046071093`, -0.7534274981594867}}]}, {
+         Hue[0.08640786499873876, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.5898977909605925`, -1.3518377527765577`}, {
+          1.6180859089297739`, -0.6175378856239497}}]}, {
+         Hue[0.3224758424985268, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.570661820352732, -1.3316658069730096`}, {
+          1.6619051172181838`, -0.5673704726598876}}]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          
+          Dashing[{
+           Small, Small}]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0.6666666666666666, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 0.6666666666666666], 
+          
+          Dashing[{
+           Small, Small}]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}}}, {{}, {}}}, {{}, {{{}, {}, {
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.721464252246508, -1.305949582533425}, {
+          2.947313505958397, 2.8775875004890343`}}]}, {
+         Hue[0.9060679774997897, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-1.7920884000611566`, -1.3008217796234016`}, {
+          2.9282344738247037`, 2.89907207134615}}]}, {
+         Hue[0.1421359549995791, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-2.057876285248928, -1.2408926221976153`}, {
+          2.8329881773268295`, 3.022912177168019}}]}, {
+         Hue[0.37820393249936934`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-2.1036754535356748`, -1.2308834770209138`}, {
+          2.8112709332694985`, 3.0407726245725155`}}]}, {
+         Hue[0.6142719099991583, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{-2.147132418247181, -1.2203504871796542`}, {
+          2.789081129698516, 3.0582151626041787`}}]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          
+          Dashing[{
+           Small, Small}]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333]], 
+          
+          Dashing[{
+           Small, Small}]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}}}, {{}, {}}}, {{}, {{{}, {}, {
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.919384058156716, -0.3369874743687559}, {
+          3.5356311686170585`, 2.7591773121367464`}}]}, {
+         Hue[0.9060679774997897, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.9470469004569, -0.3235170289284124}, {3.552953463789947, 
+          2.7645144751422244`}}]}, {
+         Hue[0.1421359549995791, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.8168634251219804`, -0.33820246747359634`}, {
+          3.470014231813943, 2.7697366692462015`}}]}, {
+         Hue[0.37820393249936934`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.8469533925252977`, -0.3235629912353268}, {
+          3.4880395473037, 2.7752177076960134`}}]}, {
+         Hue[0.6142719099991583, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.876382184488928, -0.3089494017090542}, {
+          3.505857590502689, 2.7805996354501317`}}]}, {
+         Hue[0.8503398874989481, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.6704176164938724`, -0.36023421734633165`}, {
+          3.382500155997349, 2.773537259644794}}]}, {
+         Hue[0.08640786499873876, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.704445500741985, -0.3441585559577698}, {
+          3.4015465993090377`, 2.7793007577756845`}}]}, {
+         Hue[0.3224758424985268, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.7375689117364996`, -0.32816084023836417`}, {
+          3.420354855375083, 2.7849525094641816`}}]}, {
+         Hue[0.5585438199983166, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.5409773451812585`, -0.3738642023530429}, {
+          3.3099458772176877`, 2.7818295087634066`}}]}, {
+         Hue[0.7946117974981064, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.579249253586681, -0.35609575793063886`}, {
+          3.329900168578682, 2.787805972554084}}]}, {
+         Hue[0.030679774997896203`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.616304661570707, -0.3384715258755926}, {
+          3.3495867673068327`, 2.7936600139357792`}}]}, {
+         Hue[0.266747752497686, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.3926151667782087`, -0.39572597724326053`}, {
+          3.233695417475845, 2.7889377733590486`}}]}, {
+         Hue[0.5028157299974758, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.4367846814698737`, -0.3757850226745654}, {
+          3.2546795397675687`, 2.79516767958967}}]}, {
+         Hue[0.7388837074972656, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.216227634495784, -0.42901760279884177`}, {
+          3.1532369404268543`, 2.794740890768769}}]}, {
+         Hue[0.9749516849970554, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.2693550777039095`, -0.4060183202273064}, {
+          3.175401443034543, 2.801274094751554}}]}, {
+         Hue[0.21101966249684523`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.319695720586308, -0.3835632468137041}, {
+          3.1972173096758403`, 2.8076548827319385`}}]}, {
+         Hue[0.44708763999663503`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.0615873621892495`, -0.45197747803446736`}, {
+          3.0914653145350064`, 2.8059772398148493`}}]}, {
+         Hue[0.6831556174964248, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{2.125275498397754, -0.42514914114014274`}, {
+          3.114594011628381, 2.812702735288596}}]}, {
+         Hue[0.9192235949962146, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{1.9480019928557493`, -0.4575827187517732}, {
+          3.050989903958097, 2.8231786378510026`}}]}, {
+         Hue[0.15529157249600445`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]], 
+         LineBox[{{1.7057062418522044`, -0.5140346875769986}, {
+          2.984248446567497, 2.832639836036783}}]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          
+          Dashing[{
+           Small, Small}]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          Dashing[{Small, Small}]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          RGBColor[0, 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0], 
+          
+          Dashing[{
+           Small, Small}]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}}}, {{}, {}}}, {{}, {{{}, {}, {
+         Hue[0.67, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]], 
+         LineBox[{{-1.4296748866238564`, -1.601100519405973}, \
+{-1.5081108743224847`, -1.5700519873907164`}, {-1.48984281355239, \
+-1.553181804213185}, {-1.4706078114095835`, -1.5359559191275036`}, \
+{-1.5233050969242754`, -1.4844666699186124`}, {-1.5502414994589897`, \
+-1.4108876798685348`}, {-1.5898977909605925`, -1.3518377527765577`}, \
+{-1.570661820352732, -1.3316658069730096`}}]}, {
+         Hue[0.9060679774997897, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]], 
+         LineBox[{{1.5327383954648002`, -1.106407284109297}, {
+          1.513656101127788, -1.024727815180956}, {
+          1.538354032069762, -0.9009098431701453}, {
+          1.6180859089297739`, -0.6175378856239497}}]}, {
+         Hue[0.1421359549995791, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]], 
+         LineBox[{{-1.721464252246508, -1.305949582533425}, \
+{-2.057876285248928, -1.2408926221976153`}, {-2.147132418247181, \
+-1.2203504871796542`}}]}, {
+         Hue[0.37820393249936934`, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]], 
+         LineBox[{{2.947313505958397, 2.8775875004890343`}, {
+          2.8329881773268295`, 3.022912177168019}, {2.789081129698516, 
+          3.0582151626041787`}}]}, {
+         Hue[0.6142719099991583, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]], 
+         LineBox[{{2.919384058156716, -0.3369874743687559}, {
+          2.8168634251219804`, -0.33820246747359634`}, {
+          2.876382184488928, -0.3089494017090542}, {
+          2.704445500741985, -0.3441585559577698}, {
+          2.5409773451812585`, -0.3738642023530429}, {
+          2.616304661570707, -0.3384715258755926}, {
+          2.4367846814698737`, -0.3757850226745654}, {
+          2.2693550777039095`, -0.4060183202273064}, {
+          2.0615873621892495`, -0.45197747803446736`}, {
+          1.9480019928557493`, -0.4575827187517732}}]}, {
+         Hue[0.8503398874989481, 0.6, 0.6], 
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]], 
+         LineBox[{{3.5356311686170585`, 2.7591773121367464`}, {
+          3.470014231813943, 2.7697366692462015`}, {3.505857590502689, 
+          2.7805996354501317`}, {3.4015465993090377`, 2.7793007577756845`}, {
+          3.3099458772176877`, 2.7818295087634066`}, {3.3495867673068327`, 
+          2.7936600139357792`}, {3.2546795397675687`, 2.79516767958967}, {
+          3.175401443034543, 2.801274094751554}, {3.0914653145350064`, 
+          2.8059772398148493`}, {3.050989903958097, 
+          2.8231786378510026`}}]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[
+          0]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}, {{
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[0]]}, {
+         Directive[
+          PointSize[
+           NCache[
+            Rational[7, 360], 0.019444444444444445`]], 
+          AbsoluteThickness[1.6], 
+          GrayLevel[
+          0]]}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, \
+{}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}, {}}}, {{}, {}}}, {
+     
+      RGBColor[
+       NCache[
+        Rational[19, 27], 0.7037037037037037], 
+       NCache[
+        Rational[19, 27], 0.7037037037037037], 1], 
+      TagBox[
+       PolygonBox[{{-1.5503191994065029`, -1.310965510707917}, {
+        1.7057062418522044`, -0.5140346875769986}, {2.984248446567497, 
+        2.832639836036783}}], "Triangle"]}, {{}, {{{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 1]], 
+         GeometricTransformationBox[
+          InsetBox[
+           BoxData[
+            FormBox[
+             StyleBox[
+              GraphicsBox[
+               DiskBox[{0, 0}, 1]], 
+              GraphicsBoxOptions -> {DefaultBaseStyle -> Directive[
+                  PointSize[0.012833333333333334`], 
+                  AbsoluteThickness[1.6], 
+                  RGBColor[
+                   Rational[1, 3], 
+                   Rational[1, 3], 1]]}, StripOnInput -> False], 
+             TraditionalForm]], {0., 0.}, Automatic, 
+           Offset[
+           15]], {{{-1.5503191994065029`, -1.310965510707917}}, \
+{{-1.5503191994065029`, -1.310965510707917}}}]}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 1]]}, {}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           NCache[
+            Rational[1, 3], 0.3333333333333333], 
+           1]]}, {}}}, {{}, {}}}, {{}, {{{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 0.5, 0]], 
+         GeometricTransformationBox[
+          InsetBox[
+           BoxData[
+            FormBox[
+             StyleBox[
+              GraphicsBox[
+               DiskBox[{0, 0}, 1]], 
+              GraphicsBoxOptions -> {DefaultBaseStyle -> Directive[
+                  PointSize[0.012833333333333334`], 
+                  AbsoluteThickness[1.6], 
+                  RGBColor[1, 0.5, 0]]}, StripOnInput -> False], 
+             TraditionalForm]], {0., 0.}, Automatic, 
+           Offset[15]], {{{1.7057062418522044`, -0.5140346875769986}}, {{
+          1.7057062418522044`, -0.5140346875769986}}}]}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 0.5, 0]]}, {}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[1, 0.5, 0]]}, {}}}, {{}, {}}}, {{}, {{{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0]], 
+         GeometricTransformationBox[
+          InsetBox[
+           BoxData[
+            FormBox[
+             StyleBox[
+              GraphicsBox[
+               DiskBox[{0, 0}, 1]], 
+              GraphicsBoxOptions -> {DefaultBaseStyle -> Directive[
+                  PointSize[0.012833333333333334`], 
+                  AbsoluteThickness[1.6], 
+                  RGBColor[
+                   Rational[2, 3], 
+                   Rational[2, 3], 0]]}, StripOnInput -> False], 
+             TraditionalForm]], {0., 0.}, Automatic, 
+           Offset[15]], {{{2.984248446567497, 2.832639836036783}}, {{
+          2.984248446567497, 2.832639836036783}}}]}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0]]}, {}}, {{
+         Directive[
+          PointSize[0.012833333333333334`], 
+          AbsoluteThickness[1.6], 
+          RGBColor[
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 
+           NCache[
+            Rational[2, 3], 0.6666666666666666], 0]]}, {}}}, {{}, {}}}}, {
+    PlotRange -> All, AxesOrigin -> {-2.147132418247181, -1.601100519405973}, 
+     Frame -> True, DisplayFunction -> Identity, DisplayFunction -> Identity, 
+     AspectRatio -> NCache[GoldenRatio^(-1), 0.6180339887498948], 
+     Axes -> {True, True}, AxesLabel -> {None, None}, AxesOrigin -> {0, 0}, 
+     DisplayFunction :> Identity, Frame -> {{False, False}, {False, False}}, 
+     FrameLabel -> {{None, None}, {None, None}}, 
+     FrameTicks -> {{Automatic, Automatic}, {Automatic, Automatic}}, 
+     GridLines -> {None, None}, GridLinesStyle -> Directive[
+       GrayLevel[0.5, 0.4]], 
+     Method -> {
+      "OptimizePlotMarkers" -> True, 
+       "CoordinatesToolOptions" -> {"DisplayFunction" -> ({
+           (Identity[#]& )[
+            Part[#, 1]], 
+           (Identity[#]& )[
+            Part[#, 2]]}& ), "CopiedValueFunction" -> ({
+           (Identity[#]& )[
+            Part[#, 1]], 
+           (Identity[#]& )[
+            Part[#, 2]]}& )}}, 
+     PlotRange -> {{-1.5898977909605925`, 
+       1.6619051172181838`}, {-1.601100519405973, 0}}, PlotRangeClipping -> 
+     True, PlotRangePadding -> {{
+        Scaled[0.02], 
+        Scaled[0.02]}, {
+        Scaled[0.05], 
+        Scaled[0.02]}}, Ticks -> {Automatic, Automatic}}],
+   "\"Membrane Composition, \[Psi]\"","\"Tether Composition, \[Rho]\""},
+  "Labeled",
+  DisplayFunction->(GridBox[{{
+      ItemBox[
+       RotationBox[#3, BoxRotation -> 1.5707963267948966`], DefaultBaseStyle -> 
+       "LabeledLabel"], 
+      TagBox[
+       ItemBox[
+        PaneBox[
+         TagBox[#, "SkipImageSizeLevel"], Alignment -> {Center, Baseline}, 
+         BaselinePosition -> Baseline], DefaultBaseStyle -> "Labeled"], 
+       "SkipImageSizeLevel"]}, {"", 
+      ItemBox[#2, DefaultBaseStyle -> "LabeledLabel"]}}, 
+    GridBoxAlignment -> {"Columns" -> {{Center}}, "Rows" -> {{Center}}}, 
+    AutoDelete -> False, 
+    GridBoxItemSize -> {"Columns" -> {{Automatic}}, "Rows" -> {{Automatic}}}, 
+    BaselinePosition -> {1, 2}]& ),
+  InterpretationFunction->(RowBox[{"Labeled", "[", 
+     RowBox[{#, ",", 
+       RowBox[{"{", 
+         RowBox[{#2, ",", #3}], "}"}], ",", 
+       RowBox[{"{", 
+         RowBox[{"Bottom", ",", "Left"}], "}"}], ",", 
+       RowBox[{"RotateLabel", "\[Rule]", "True"}]}], "]"}]& )]], "Output",
+ CellChangeTimes->{3.82118822674076*^9},
+ CellLabel->
+  "Out[672]=",ExpressionUUID->"b99733b9-c767-4411-b6c2-4a55a1898c66"]
+}, Open  ]]
 }, Open  ]],
 
 Cell[CellGroupData[{
@@ -4359,9 +6287,10 @@ Cell[BoxData[{
    3.8091096671606817`*^9, 3.8091098562641983`*^9}, 3.8091640555815353`*^9, {
    3.8091640890955877`*^9, 3.8091644139549627`*^9}, 3.8097141869458933`*^9, {
    3.81299054854042*^9, 3.8129906181255627`*^9}, {3.814208348987134*^9, 
-   3.814208350663599*^9}, 
-   3.821187535818756*^9},ExpressionUUID->"0ef636d2-cbe2-4228-bd17-\
-4b09632dc932"],
+   3.814208350663599*^9}, 3.821187535818756*^9, {3.821188232266184*^9, 
+   3.8211882330797863`*^9}},
+ CellLabel->
+  "In[678]:=",ExpressionUUID->"0ef636d2-cbe2-4228-bd17-4b09632dc932"],
 
 Cell[BoxData[
  GraphicsBox[{{}, {{{}, {}, 
@@ -4545,9 +6474,10 @@ lWd/LNTsJZAM6V8u0+wlyKyevnZTs5diu7zNolGzl+JExbhMpdlL4SSqj+nR
  CellChangeTimes->{
   3.812990558264452*^9, {3.8129906067568808`*^9, 3.8129906196443453`*^9}, 
    3.814208342738216*^9, 3.814282317995965*^9, 3.814282927612301*^9, 
-   3.8143790962331867`*^9, 3.8195598654633503`*^9},
+   3.8143790962331867`*^9, 3.8195598654633503`*^9, 3.821188233542222*^9, 
+   3.821188268983836*^9},
  CellLabel->
-  "Out[631]=",ExpressionUUID->"ddde267a-f082-49c5-8dd7-eb493e9f996d"]
+  "Out[681]=",ExpressionUUID->"09218d49-482c-4d64-a5c4-f6156f1ac90b"]
 }, Open  ]]
 }, Open  ]],
 
@@ -4723,9 +6653,9 @@ Cell[BoxData[
    3.812541168851551*^9, 3.812541174032589*^9}, {3.8125412411530323`*^9, 
    3.812541372600574*^9}, {3.81522564259662*^9, 3.815225643336218*^9}, {
    3.819726305386549*^9, 3.819726305766651*^9}, {3.819733814338805*^9, 
-   3.8197338421855164`*^9}, {3.8211876117925253`*^9, 
-   3.821187618463807*^9}},ExpressionUUID->"6052d8e3-8339-4af7-b7db-\
-c5f80f7c46f7"]
+   3.8197338421855164`*^9}, {3.8211876117925253`*^9, 3.821187618463807*^9}},
+ CellLabel->
+  "In[682]:=",ExpressionUUID->"6052d8e3-8339-4af7-b7db-c5f80f7c46f7"]
 }, Open  ]]
 },
 WindowSize->{1559, 849},
@@ -4763,37 +6693,43 @@ Cell[15490, 397, 57021, 1202, 3352, "Input",ExpressionUUID->"4d25a2c4-65d3-4fd9-
 }, Open  ]],
 Cell[CellGroupData[{
 Cell[72548, 1604, 340, 5, 41, "Subsubsection",ExpressionUUID->"b86f2ad1-73b6-484a-ad62-a2d7cdae60f8"],
-Cell[72891, 1611, 2934, 58, 250, "Input",ExpressionUUID->"0c436e60-6457-4cf2-ba57-e0cb8535ff22"]
+Cell[72891, 1611, 2938, 59, 283, "Input",ExpressionUUID->"0c436e60-6457-4cf2-ba57-e0cb8535ff22"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[75874, 1675, 17045, 239, 65, "Section",ExpressionUUID->"94d5da17-621d-4217-91bd-23dbcac19ae8"],
-Cell[CellGroupData[{
-Cell[92944, 1918, 21546, 349, 426, "Input",ExpressionUUID->"4d584e4b-3a0d-4ef8-8b5f-a0671109c167"],
-Cell[114493, 2269, 182, 3, 33, "Output",ExpressionUUID->"8b1c71f0-493a-456b-84a4-f0ba33710e30"]
-}, Open  ]],
-Cell[114690, 2275, 154, 3, 29, "Input",ExpressionUUID->"fb440e65-c9d4-4744-8942-553aff1ef73a"]
+Cell[75878, 1676, 17045, 239, 65, "Section",ExpressionUUID->"94d5da17-621d-4217-91bd-23dbcac19ae8"],
+Cell[92926, 1917, 21701, 350, 404, "Input",ExpressionUUID->"4d584e4b-3a0d-4ef8-8b5f-a0671109c167"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[114881, 2283, 214, 5, 63, "Section",ExpressionUUID->"2d89ad4b-2fcd-48c3-b4df-7f22d64f1ee4"],
-Cell[115098, 2290, 26915, 586, 910, "Input",ExpressionUUID->"070d3251-27ec-427a-af40-9c931ea9cc5e"],
-Cell[142016, 2878, 16125, 370, 294, "Input",ExpressionUUID->"644b01d0-10c6-4bdd-9751-3e736b2724e9"],
-Cell[158144, 3250, 40515, 747, 639, InheritFromParent,ExpressionUUID->"b275c526-62e7-45fb-a06d-fc54a89a434e"]
+Cell[114664, 2272, 214, 5, 63, "Section",ExpressionUUID->"2d89ad4b-2fcd-48c3-b4df-7f22d64f1ee4"],
+Cell[CellGroupData[{
+Cell[114903, 2281, 26896, 583, 888, "Input",ExpressionUUID->"070d3251-27ec-427a-af40-9c931ea9cc5e"],
+Cell[141802, 2866, 157, 3, 33, "Output",ExpressionUUID->"07cc7ed4-7a18-42cc-9352-984fa4458784"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[198696, 4002, 782, 11, 63, "Section",ExpressionUUID->"025b89e9-df8b-46f7-86e6-6ca44d78e297"],
-Cell[199481, 4015, 10032, 248, 382, "Input",ExpressionUUID->"fc84c69f-30dc-40b8-9db3-559a789caef6"]
+Cell[141996, 2874, 16271, 371, 316, "Input",ExpressionUUID->"644b01d0-10c6-4bdd-9751-3e736b2724e9"],
+Cell[158270, 3247, 40016, 733, 367, "Output",ExpressionUUID->"5e9bff19-b79d-4570-835a-dbbb0cc30722"]
+}, Open  ]],
+Cell[198301, 3983, 676, 18, 52, InheritFromParent,ExpressionUUID->"b275c526-62e7-45fb-a06d-fc54a89a434e"]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[209550, 4268, 170, 3, 63, "Section",ExpressionUUID->"578fcb82-c725-4569-8ae2-8ecd321df5ed"],
+Cell[199014, 4006, 782, 11, 63, "Section",ExpressionUUID->"025b89e9-df8b-46f7-86e6-6ca44d78e297"],
 Cell[CellGroupData[{
-Cell[209745, 4275, 3576, 88, 118, "Input",ExpressionUUID->"0ef636d2-cbe2-4228-bd17-4b09632dc932"],
-Cell[213324, 4365, 8153, 184, 353, "Output",ExpressionUUID->"ddde267a-f082-49c5-8dd7-eb493e9f996d"]
+Cell[199821, 4021, 10115, 249, 382, "Input",ExpressionUUID->"fc84c69f-30dc-40b8-9db3-559a789caef6"],
+Cell[209939, 4272, 6602, 168, 246, "Output",ExpressionUUID->"c5c7a412-8414-4167-87b1-11fe55493236"],
+Cell[216544, 4442, 63236, 1748, 244, "Output",ExpressionUUID->"b99733b9-c767-4411-b6c2-4a55a1898c66"]
 }, Open  ]]
 }, Open  ]],
 Cell[CellGroupData[{
-Cell[221526, 4555, 1073, 15, 63, "Section",ExpressionUUID->"5116a461-33d0-4338-99bf-0a17702aa555"],
-Cell[222602, 4572, 6488, 155, 206, "Input",ExpressionUUID->"6052d8e3-8339-4af7-b7db-c5f80f7c46f7"]
+Cell[279829, 6196, 170, 3, 63, "Section",ExpressionUUID->"578fcb82-c725-4569-8ae2-8ecd321df5ed"],
+Cell[CellGroupData[{
+Cell[280024, 6203, 3650, 89, 118, "Input",ExpressionUUID->"0ef636d2-cbe2-4228-bd17-4b09632dc932"],
+Cell[283677, 6294, 8201, 185, 353, "Output",ExpressionUUID->"09218d49-482c-4d64-a5c4-f6156f1ac90b"]
+}, Open  ]]
+}, Open  ]],
+Cell[CellGroupData[{
+Cell[291927, 6485, 1073, 15, 63, "Section",ExpressionUUID->"5116a461-33d0-4338-99bf-0a17702aa555"],
+Cell[293003, 6502, 6510, 155, 206, "Input",ExpressionUUID->"6052d8e3-8339-4af7-b7db-c5f80f7c46f7"]
 }, Open  ]]
 }
 ]
