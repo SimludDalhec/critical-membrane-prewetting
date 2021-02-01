@@ -13,12 +13,11 @@ cimport ising_class as I
 cimport bulk_polymer as p
 
 ##################################################
-############## CONSTANTS #########################
+############## Parameters #########################
 ##################################################
 cdef int L1,L2,L3,N1,N2,N3,Ntot;
-cdef int print_interval = 2000
-cdef int iters_bulk_loT = 2000000;                        # iters when changing bulk temp
-cdef int iters_bulk_hiT = 100000;                   # Iterations when expecting no droplet
+cdef int print_interval = 2000              # Iterations per print step
+cdef int iters = 2000000;                   # iters when changing bulk temp
 cdef int D1 = 30;                                   # maximum length of box from surfae
 cdef int L = 40;                                    # Dimensions of surface
 cdef int N_res = 100;                               # Polymers in reservoir
@@ -28,16 +27,15 @@ cdef double[:,:,:] prob;                            #array of switching probabil
 cdef float J_nn = 0.1                               # nn energy, nonspecific
 L1,L2,L3 = 20,20,5                                   # Polymer Lengths
 out_path = "./"
-#array of ising temperatures to move through 
 nn = [(1,0,0),(-1,0,0),(0,-1,0),(0,1,0),(0,0,1),(0,0,-1)] #nearest neighbor coordinates
 nn_lo = [(1,0,0),(0,-1,0),(0,1,0),(0,0,1),(0,0,-1)]       #when at x = 0
 nn_hi = [(-1,0,0),(0,-1,0),(0,1,0),(0,0,1),(0,0,-1)]      #when at x = L - 1
 ##################################################?
 
-#########################################################
-
-#### Main loop
+##################################################################################################################
+# MAIN
 # runs through, first decreasing bulk temperature, then surface bulk coupling, then ising temp
+##################################################################################################################
 def main(float tether_conc,float J_stop, float chem_potent,float hPhiMax, float comp, float Ti):
     cdef float hPhi = 0;                                     # surface bulk coupling
     cdef int N3 = int(tether_conc*(L**2.0))
@@ -51,6 +49,7 @@ def main(float tether_conc,float J_stop, float chem_potent,float hPhiMax, float 
     ising = I.ising(L,sticky,Ti,comp)    
     lattice= [np.zeros((D1,L,L)),np.zeros((D1,L,L)),np.zeros((D1,L,L))]
     lattice_res = [np.zeros((D1,L,L)),np.zeros((D1,L,L)),np.zeros((D1,L,L))]
+
     #set up directory for output files 
     dir_name = out_path + "d{0}-{1}-J{2}_n{3}_l{4}_u{5}_hPhi{6}_c{7}_i{8}".format(D1,L,J_stop,tether_conc,L1,chem_potent,hPhiMax,comp,Ti)
     if os.path.isdir(dir_name) == False:
@@ -64,7 +63,7 @@ def main(float tether_conc,float J_stop, float chem_potent,float hPhiMax, float 
         fn_i = fn + "_ising.txt"
         fn_t = fn + "_tethers.txt";
         lattice,lattice_res = make_lattice(state,lattice,lattice_res)
-        state,ising,lattice,lattice_res = sim(iters_bulk_hiT,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
+        state,ising,lattice,lattice_res = sim(iters,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
     hPhi = hPhiMax
     #Raise interactions in the bulk
     for J in TbArr:
@@ -73,7 +72,7 @@ def main(float tether_conc,float J_stop, float chem_potent,float hPhiMax, float 
         fn_i = fn + "_ising.txt"
         fn_t = fn + "_tethers.txt";
         lattice,lattice_res = make_lattice(state,lattice,lattice_res)
-        state,ising,lattice,lattice_res = sim(iters_bulk_loT,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
+        state,ising,lattice,lattice_res = sim(iters,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
     #Lower interactions in the bulk
     for J in TbArr[::-1]:
         probs = make_probs(J,hPhi)
@@ -81,15 +80,17 @@ def main(float tether_conc,float J_stop, float chem_potent,float hPhiMax, float 
         fn_i = fn + "_ising.txt"
         fn_t = fn + "_tethers.txt";
         lattice,lattice_res = make_lattice(state,lattice,lattice_res)
-        state,ising,lattice,lattice_res = sim(iters_bulk_loT,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
+        state,ising,lattice,lattice_res = sim(iters,state,fn,fn_i,fn_t,ising,lattice,lattice_res,N3,probs,switch_probs)
     return
 
 #########################
 ####### FUNCTIONS #######
 #########################
 
+####################################################
 #Initialized each polymer to straight lines
 # puts even amount of red-blue polymers in reservoir and system
+####################################################
 def init_state(N3):
     polys1,polys2,tethers = [],[],[]
     state = [polys1,polys2,tethers]
@@ -128,7 +129,9 @@ def init_state(N3):
     state = [polys1,polys2,tethers]
     return state
 
-#Slow way to check intersect when we don't have our lattice yet. 
+####################################################
+#Slow way to check intersect when we don't have our lattice yet.
+####################################################
 def check_intersect(poly,state,t):
     if t == 1:
         for p in state:
@@ -151,10 +154,14 @@ def check_intersect(poly,state,t):
                 return True
         return False
 
-# simulates a system with the particle reservoir
-# Moves for each polymer are proposed then acc/rej 
-# Ising model is sweeped over once per sweep through polymers
-# A poisson number of polymers are selected to be switched from sys -> res/res -> switch. 
+####################################################  ####################################################
+# Main simulation loop 
+#     simulates a system with the particle reservoir
+#     Moves for each polymer are proposed then acc/rej on Metropolis Probability
+#     Ising spins are sweeped once per sweep through polymers
+#     A poisson number of polymers are selected between systems per iteration.
+#     Repeated Iter times per, result written every print_int iterations
+########################################################################################################
 cdef sim(int iter,state,fn,fn_i,fn_t,ising,lattice,lattice_res,int N3,double[:,:,:] probs,double[:,:] switch_probs):
     cdef int i,a,p_total,b,n,Nsys;
     cdef int[:] pseq; 
@@ -165,20 +172,23 @@ cdef sim(int iter,state,fn,fn_i,fn_t,ising,lattice,lattice_res,int N3,double[:,:
     f_state = open(fn+"_polys.txt",'w')
     for i in range(iter):
         N1,N2 = len(state[0]),len(state[1])
-        Nsys = N1 + N2
+        Nsys = N1 + N2            
         p_total = N1 + N2 + N3
-        pseq = np.arange(0,p_total,dtype=np.intc)              #aray of total # of polymers 
+        pseq = np.arange(0,p_total,dtype=np.intc)              
         np.random.shuffle(pseq)
-        a = 0;
-        for a in range(p_total):                                        # Loop thru reach poly
-            pnum,ptype = idx_to_idx(pseq[a],N1,N2,N3)
+        n = 0;
+        for n in range(p_total):                                        
+            pnum,ptype = idx_to_idx(pseq[n],N1,N2,N3)
             system = state[ptype][pnum].get_sys()
+            # Moving polymers within the system: cluster moves and reptation moves
             if system == 0:
+                # Cluster Move
                 if p_cluster_arr[Nsys] > rand()/(RAND_MAX+1.0):
-                    c = make_graph(state,N1,N2,N3,a)                
+                    c = make_graph(state,N1,N2,N3,n)                
                     initial = state
                     state = move_cluster(initial,c,ising,lattice,system)
                     lattice,lattice_res = make_lattice(state,lattice,lattice_res)
+                #Reptation move
                 else:
                     final = state[ptype][pnum].make_move()
                     init = state[ptype][pnum].get_pos()
@@ -190,7 +200,8 @@ cdef sim(int iter,state,fn,fn_i,fn_t,ising,lattice,lattice_res,int N3,double[:,:
                         elif probs[b+50,n+50,s+50] > rand()/(RAND_MAX+1.0):
                             lattice = update_lattice(final,init,lattice,ptype)
                             state[ptype][pnum].set_pos(final)
-            else:             #Reservoir runs  - just check for collisions
+            #Reservoir - just check for collisions between like polymers
+            else:             
                 final = state[ptype][pnum].make_move()
                 init = state[ptype][pnum].get_pos()
                 b,n,s = get_move_energy(final,init,lattice_res,ptype,ising,1)
@@ -223,33 +234,38 @@ cdef sim(int iter,state,fn,fn_i,fn_t,ising,lattice,lattice_res,int N3,double[:,:
                 state[ptype].remove(state[ptype][idx])
             lattice = update_lattice_exchange(pos,ptype,add_rem,lattice)
 
-        # PRINTING - should probably do less iterations
+        # PRINT
         if i % print_interval == 0:
             ising.print_spins(f_i,i)
             print_state(state,f_state,i)
             print_tethers(f_t,i,sticky)
 
     f_i.close()
+    f_t.close()
     f_state.close()
     return state,ising,lattice,lattice_res
 
+####################################################
 ## TRANSLATES POLYMER COUNT IDX TO PE-TYPE IDX
-cdef (int,int) idx_to_idx(int a,int N1,int N2,int N3):
+####################################################
+cdef (int,int) idx_to_idx(int n,int N1,int N2,int N3):
     cdef int pnum,ptype;
     pnum,ptype = 0,0
-    if a >= N2+N1:
+    if n >= N2+N1:
         ptype = 2
-        pnum = a -(N1+N2)
-    elif a >= N1:
+        pnum = n -(N1+N2)
+    elif n >= N1:
         ptype = 1
-        pnum = a - N1
+        pnum = n - N1
     else:
         ptype = 0
-        pnum = a
+        pnum = n
     return pnum,ptype
 
+########################################################################################################
 ## energy of each move. Rejecting (-100) if self/type overlaps or violates boundary conditions
 # otherwise return change in bonds form initial to final position
+########################################################################################################
 cdef (int,int,int) get_move_energy(final,initial,lattice,int polytype,ising,int sys):
     cdef int N,i,bonds_bulk,bonds_tether,nn;
     cdef int[:,:] isingLat;
@@ -304,8 +320,9 @@ cdef (int,int,int) get_move_energy(final,initial,lattice,int polytype,ising,int 
         nn = check_nn(move_f[0],move_i[0],lattice,polytype,sys)
         return bonds_bulk,nn,bonds_tether
 
-
-## nn interactions satisfies metropolis criterion,no sort of overlaps allowed on either side.  
+########################################################################################################
+## nn interactions satisfies metropolis criterion,no sort of overlaps allowed on either side.
+########################################################################################################
 cdef int prop_switch(int ptype,int sys,pos,lattice,lattice_res,double[:,:] switch_probs):
     cdef int i =0;
     cdef double p_change;
@@ -341,22 +358,10 @@ cdef int prop_switch(int ptype,int sys,pos,lattice,lattice_res,double[:,:] switc
             return -1
         return 0
 
-## Probs for chemcial potential
-# idx1 = res/to sys (0_) or sys to res (1)
-# idx2 = ammount of nearest neighbors
-cdef double[:,:] make_switch_probs(float chem_potent):
-    cdef double[:,:] probs = np.zeros((2,L1*6*2),dtype = np.double)
-    for i in range(L1*6*2):
-        #moving from reservoir to system
-        energy = -chem_potent+(-J_nn*i)
-        probs[0,i] = np.exp(-energy,dtype =np.double)
-        #moving from system to reservoir Energy = u*(-1) + (J_nn*(-i))
-        energy = chem_potent+(J_nn*i)
-        probs[1,i] = np.exp(-energy,dtype= np.double)
-    return probs 
-
+####################################################
 #Getting full neighbor counts of a polymer 
 #BCs make this somewhat long to get through
+####################################################
 cdef int get_neighbor_counts(poly,lattice):
     l1,l2,l3 = lattice
     cdef int neighbor_count,i,k,j;
@@ -370,11 +375,13 @@ cdef int get_neighbor_counts(poly,lattice):
                 p = nn[j]
                 if all([poly[k] != (px+p[0],(py+p[1])%L,(pz+p[2])%L) for k in range(N)]):
                     neighbor_count += l1[(px+p[0],(py+p[1])%L,(pz+p[2])%L)] + l2[(px+p[0],(py+p[1])%L,(pz+p[2])%L)] + l3[(px+p[0],(py+p[1])%L,(pz+p[2])%L)]
+        # If on far boundary you have less neighbors
         elif px == D1 - 1:
             for j in range(5):
                 p = nn_hi[j]
                 if all([poly[k] != (px+p[0],(py+p[1])%L,(pz+p[2])%L) for k in range(N)]):
                     neighbor_count += l1[(px+p[0],(py+p[1])%L,(pz+p[2])%L)] + l2[(px+p[0],(py+p[1])%L,(pz+p[2])%L)] + l3[(px+p[0],(py+p[1])%L,(pz+p[2])%L)]
+        # If on membrane boundary there are less neighbors 
         else:
             for j in range(5):
                 p = nn_lo[j]
@@ -382,7 +389,9 @@ cdef int get_neighbor_counts(poly,lattice):
                     neighbor_count += l1[(px+p[0],(py+p[1])%L,(pz+p[2])%L)] + l2[(px+p[0],(py+p[1])%L,(pz+p[2])%L)] + l3[(px+p[0],(py+p[1])%L,(pz+p[2])%L)]
     return neighbor_count
 
+####################################################
 ### Check NN and add energies for a snake-like move
+####################################################
 cdef int check_nn(final,initial,lattice,polytype,sys):
     cdef int i,pt,count,n_f,n_i;
     count,i,n_f,n_i = 0,0,0,0
@@ -435,8 +444,10 @@ cdef int check_nn(final,initial,lattice,polytype,sys):
                 n_f += l1[(x_f+n[0]),(y_f+n[1])%L,(z_f+n[2])%L] + l2[(x_f+n[0]),(y_f+n[1])%L,(z_f+n[2])%L] + l3[(x_f+n[0]),(y_f+n[1])%L,(z_f+n[2])%L]                
     return n_f - n_i
 
-#makes a graph and returns the connected component that "a" is in 
-# a slow but sure way to get connected groups of polymers
+################################################################
+#makes a graph and returns the connected component that polymer
+#"a" is in
+###############################################################
 cdef make_graph(state,int N1,int N2,int N3,int a):
     g = nx.Graph()
     polys1,polys2,polys3 = state
@@ -472,13 +483,13 @@ cdef make_graph(state,int N1,int N2,int N3,int a):
             return p
     return [] 
 
-
+######################################################
 #Moves a cluster of polymers
-# returns a rejection if any bonds are formed when moving 
-# otherwise 
+# returns a rejection if any bonds are formed/broken when moving
+# or if tethers are moved off of Ising spin
+#########################################################
 cdef move_cluster(state,r_c,ising,lattice,int sys):
     polys1,polys2,polys3 = state
-    # Translate cluster by 1 lattices square
     cdef int i,n_c,j;
     n_c,i = len(r_c),0
     cdef int n1 = len(state[0])
@@ -499,7 +510,7 @@ cdef move_cluster(state,r_c,ising,lattice,int sys):
             x,y,z = zip(*pos)
             l_clust_i[x,y,z] = 1            
             move[1][c - n1] = [(p[0] + m[0],(p[1]+m[1])%L,(p[2]+m[2])%L) for p in pos]
-            if(check_x_bounds(move[1][c-len(polys1)])):
+            if check_x_bounds(move[1][c-len(polys1)]) == 1:
                 return state
             x,y,z = zip(*move[1][c-len(polys1)])
             l_clust_f[x,y,z] = 1
@@ -508,7 +519,7 @@ cdef move_cluster(state,r_c,ising,lattice,int sys):
             x,y,z = zip(*pos)
             l_clust_i[x,y,z] = 1
             move[0][c] = [(p[0] + m[0],(p[1]+m[1])%L,(p[2]+m[2])%L) for p in pos]   
-            if(check_x_bounds(move[0][c])):
+            if check_x_bounds(move[0][c]) == 1:
                 return state
             x,y,z = zip(*move[0][c])
             l_clust_f[x,y,z] = 1
@@ -545,18 +556,23 @@ cdef move_cluster(state,r_c,ising,lattice,int sys):
     ising.update_stuck(sticky)
     return state
 
-cdef check_x_bounds(pos):
+##################################################################
+#Returns 1 if polymer falls outside of x boundaries
+##################################################################
+cdef int check_x_bounds(pos):
     cdef int i = 0;
     cdef int N = len(pos)
     for i in range(N):
         x = pos[i][0]
         if x > D1-1:
-            return True
+            return 1
         if x < 0 :
-            return True
-    return False
+            return 1
+    return 0
 
+##################################################################
 #updates lattice positions by moving from final to initial
+##################################################################
 cdef update_lattice(final,initial,lattice,int ptype):
     cdef int i = 0;
     cdef int N,xf,yf,zf,xi,yi,zi;
@@ -576,9 +592,10 @@ cdef update_lattice(final,initial,lattice,int ptype):
         lattice[ptype][xf,yf,zf] = 1
     return lattice 
 
-
-## Makes state of polys into a 3D lattice with axis for each poly
-#    type. 1/0 indicating occupide/empty
+###################################################################
+## Makes state of polys into a 3D lattices for each polymer type
+#  1/0 indicating occupide/empty
+##################################################################
 cdef make_lattice(state,LAT,LAT_RES):
     cdef int i = 0;
     cdef int j = 0;
@@ -617,7 +634,9 @@ cdef make_lattice(state,LAT,LAT_RES):
 
     return LAT,LAT_RES
 
-## Remove/add poly to lattice
+#################################
+## Remove/add poly to lattice after particle exchange
+#################################
 cdef update_lattice_exchange(pos, int pt,int add_rem,LAT):
     cdef int j;
     for j in range(L1):
@@ -632,6 +651,8 @@ cdef update_lattice_exchange(pos, int pt,int add_rem,LAT):
             
 
 ##################################
+# Prints bulk polymer positions
+##################################
 def print_state(state,fh,iter):
     polys1,polys2,tethers = state
     for i in range(2):
@@ -644,7 +665,9 @@ def print_state(state,fh,iter):
             fh.write("%d\t%d\t%d\t%d\t%s\n" % (iter,sys,i,j,to_print))
     return
 
+#################################
 #Print tether positions
+#################################
 def print_tethers(fh,iter,sticky):
     to_print = ""
     for i in range(L):
@@ -654,6 +677,9 @@ def print_tethers(fh,iter,sticky):
     return
 
 ##################################
+# Probability of accepting or rejection a move
+# base on amount of bonds broken/formed and coupling strengths
+#################################
 cdef double[:,:,:] make_probs(float J,float hPhi):
     cdef double[:,:,:] p = np.zeros((100,100,100),dtype = np.double)
     cdef int i = 0;
@@ -669,9 +695,28 @@ cdef double[:,:,:] make_probs(float J,float hPhi):
                     p[i+50,j+50,k+50] = np.exp(-e,dtype = np.double)
     return p
 #####################################
+# probability to propose a clustter move inversely
+# proportional to polymers in the system
+######################
 cdef double[:] make_cluster_probs():
     cdef double p_not = 0.10;
     cdef double [:] pclus = np.zeros(1000,dtype=np.double)
     for i in np.arange(1,1000,1):
         pclus[i-1] = (1 / i)*p_not
     return pclus
+
+####################################################
+## Probs for chemcial potential
+# idx1 = res/to sys (0_) or sys to res (1)
+# idx2 = ammount of nearest neighbors
+####################################################
+cdef double[:,:] make_switch_probs(float chem_potent):
+    cdef double[:,:] probs = np.zeros((2,L1*6*2),dtype = np.double)
+    for i in range(L1*6*2):
+        #moving from reservoir to system
+        energy = -chem_potent+(-J_nn*i)
+        probs[0,i] = np.exp(-energy,dtype =np.double)
+        #moving from system to reservoir Energy = u*(-1) + (J_nn*(-i))
+        energy = chem_potent+(J_nn*i)
+        probs[1,i] = np.exp(-energy,dtype= np.double)
+    return probs 
