@@ -1,9 +1,9 @@
 # critical-membrane-prewetting
-  Simulations and Calculations for "[Paper title here]"
+  Simulations and Calculations for "Surface Densities Prewet a Near-Critical Membrane"
   Mason Rouches: mason.rouches@yale.edu. Urbit: ~simlud-dalhec
   Last updated 2/1/2021
 ### Simulations
-requires cython, numpy, networkx,...
+requires cython, numpy, networkx 
 	 #### compile files
 	 python setup_sim.py build_ext --inplace
 
