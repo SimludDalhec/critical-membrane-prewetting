@@ -1,7 +1,7 @@
 # critical-membrane-prewetting
   Simulations and Calculations for "Surface Densities Prewet a Near-Critical Membrane"
   	      https://doi.org/10.1101/2021.02.17.431700 
-  Mason Rouches: mason.rouches@yale.edu. Urbit: ~simlud-dalhec
+  Mason Rouches: mason.rouches@yale.edu
 ### Simulations
 requires cython, numpy, networkx
 #### Run simulations
