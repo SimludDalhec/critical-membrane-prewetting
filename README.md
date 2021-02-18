@@ -3,15 +3,20 @@
   Mason Rouches: mason.rouches@yale.edu. Urbit: ~simlud-dalhec
   Last updated 2/1/2021
 ### Simulations
-requires cython, numpy, networkx 
-	 #### compile files
-	 python setup_sim.py build_ext --inplace
-
-	 #### Run simulations
-	   python run_sim.py [tether_conc] [bulk_coupling] [bulk_chem_potent] [tether_couplig] [membrane comp] [ising_coupling]
-	   Other adjustable parameters (iterations, system size, polymer lengths, temperature step) can be changed in header of membrane_polymer_simulaiton.pyx
-	   ### outputs 
-       	   Creates directory: d[Dim1]-[Dim2]-J[bulk_coupling]_n[tether_conc]_l[poly_length]_u-[chem_potent]_hPhi[tether_coupling]_c[membrane_comp]_i[ising_coupling] where output files are stored in separate files for each coupling step
+requires cython, numpy, networkx
+#### Run simulations
+	python run_sim_2phase.py # runs 2 phase simulation
+	       Tether conc = 0.06
+	       Bulk Chemical potential = -5.8
+	       Ising temperature = 1.1Tc
+	       Membrane Composition = 0.5
+	python run_sim_3phase.py # runs 3 phase simulation
+	       Tether conc = 0.08
+	       Bulk Chemical potential = -4.5
+	       Ising temperature = 0.85Tc
+	       Membrane Composition = 0.35
+### outputs 
+        Creates directory: d[Dim1]-[Dim2]-J[bulk_coupling]_n[tether_conc]_l[poly_length]_u-[chem_potent]_hPhi[tether_coupling]_c[membrane_comp]_i[ising_coupling] where output files are stored in separate files for each coupling step
 	   Each coupling step has 3 files - []_tethers.txt,[]_ising.txt,[]_polys.txt
 	   Ising format is: iteration \t spins\n where spins are L^2 +/- 1 values for each position 
            Tether format is iteration \t tether_occ where tether_occ L^2 values 0/1 where 1 means tether is in position X
@@ -21,14 +26,11 @@ requires cython, numpy, networkx
 		  poly number counts the number of polymers in sys of poly type
 		  positions is a poly_length*3 values where every 3 values corresponds to an (x,y,z) positon
 
-          ### View Simulations
-          	generate_snapshots.py plots several random snapshots of each simulaion, along with averaged density profiles 
-		Subroutines for reading output files can be found here
+### View Simulations
+       generate_snapshots.py plots several random snapshots of each simulaion, along with averaged density profiles
+       Subroutines for reading output files can be found There
 
-# Sample parameters:
-	 Prewetting 0.06 0.5 -5.0 1.0 0.5 1.0
-	 3 Phase coexistence: 0.08 0.6 -5.0 1.0 0.3 0.75 
 
-# MFT Calculations
+### MFT Calculations
   Calculates the fixed-temperature phase diagram in terms of \lambda_{\rho},\lambda_{\psi} values. Translates to \psi,\rho values
-  Run notebook sections sequentially 
+  Run notebook sections sequentially
